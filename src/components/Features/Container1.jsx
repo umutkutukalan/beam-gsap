@@ -2,13 +2,13 @@ import { video } from "../../utils";
 
 const Container1 = () => {
   return (
-    <div className="content h-[100vh] flex items-center justify-center">
+    <div className="h-[100vh] flex items-center justify-center">
       <div className="flex flex-col items-center justify-center w-full">
         <div className="flex flex-col items-center gap-5">
           <div className="relative rounded-3xl overflow-hidden cursor-pointer">
             <video
               controls
-              className="w-200 border border-white overflow-hidden rounded-3xl"
+              className="video-settings"
             >
               <source src={video} className="w-full h-full" />
             </video>

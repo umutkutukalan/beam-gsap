@@ -1,9 +1,21 @@
 @import "tailwindcss";
-
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  box-sizing: border-box;
+}
 body {
   background-color: black;
   color: white;
 }
 .page {
   @apply h-[115vh];
+}
+
+.box {
+  @apply fixed left-1/2 transform -translate-x-1/2 bg-[#201bcb] rounded-lg w-full overflow-hidden;
+}
+
+.video-settings {
+  @apply w-200 border border-white overflow-hidden rounded-3xl;
 }

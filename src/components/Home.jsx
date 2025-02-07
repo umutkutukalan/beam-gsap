@@ -2,9 +2,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Container1 from "./Features/Container1";
+import { useEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
+  const boxRef = useRef(null);
+
   useGSAP(() => {
     gsap.fromTo(
       ".box",
@@ -15,7 +18,7 @@ const Home = () => {
         borderRadius: "30px",
         backgroundColor: "#201bcb",
         zIndex: 150,
-        clipPath: "inset(0 0 0 0)", // Başlangıçta tamamen görünür
+        clipPath: "inset(0 0 0 0)",
       },
       {
         width: "100%",
@@ -25,7 +28,7 @@ const Home = () => {
         backgroundColor: "black",
         zIndex: 100,
         ease: "power1.inOut",
-        clipPath: "inset(0 0 0 0)", // Başlangıçta tamamen görünür
+        clipPath: "inset(0 0 0 0)",
         scrollTrigger: {
           trigger: ".box",
           start: "top 20%",
@@ -38,18 +41,26 @@ const Home = () => {
               gsap.set(".box", { overflowY: "hidden" });
             }
           },
+          onLeaveBack: () => {
+            const boxElement = boxRef.current;
+            if (boxElement.scrollTop === 0) {
+              gsap.set(".box", { overflowY: "hidden" });
+            } else {
+              self.scroll(self.start);
+            }
+          },
         },
       }
     );
 
     gsap.fromTo(
       ".content",
-      { opacity: 0, y: 700, scale: 0.5, zIndex: 10 }, // Başlangıçta görünmez ve aşağıda
+      { opacity: 0, y: 700, scale: 0.5, zIndex: 10 },
       {
         scale: 1,
-        zIndex: 200, // Z-index değerini artır
-        opacity: 1, // Görünür hale gel
-        y: 0, // Yukarıya gel
+        zIndex: 200,
+        opacity: 1,
+        y: 0,
         ease: "power1.inOut",
         scrollTrigger: {
           trigger: ".box",
@@ -61,10 +72,10 @@ const Home = () => {
     );
     gsap.fromTo(
       ".bottom-div",
-      { opacity: 1, y: 0, zIndex: 190, scale: 1 }, // Başlangıçta görünür
+      { opacity: 1, y: 0, zIndex: 190, scale: 1 },
       {
-        opacity: 0, // Kaybol
-        duration: 3, // 3 saniyede kaybol
+        opacity: 0,
+        duration: 3,
         scale: 0.5,
         ease: "power1.inOut",
         zIndex: 0,
@@ -78,14 +89,24 @@ const Home = () => {
     );
   }, []);
 
+  useEffect(() => {
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, []);
+
   return (
     <div className="page h-full w-full">
       {/* Kutu */}
-      <div className="box fixed left-1/2 transform -translate-x-1/2 bg-[#201bcb] rounded-lg w-full overflow-hidden">
+      <div className="box" ref={boxRef}>
+        {/* Icerik */}
         <div className="content z-200 relative ">
+          <Container1 />
+          <Container1 />
           <Container1 />
         </div>
       </div>
+      {/* bottom div */}
       <div className="bottom-div fixed inset-0 flex items-center justify-center flex-col gap-10">
         <h1 className="text-7xl text-white mb-4 mt-10">Meet the bright web</h1>
         <div className="flex flex-col items-center gap-4">
