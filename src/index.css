@@ -5,5 +5,5 @@ body {
   color: white;
 }
 .page {
-  @apply h-[120vh] bg-white;
+  @apply h-[115vh];
 }
