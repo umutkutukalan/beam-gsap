@@ -3,6 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Container1 from "./Features/Container1";
 import { useEffect, useRef } from "react";
+import Container2 from "./Features/Container2";
+import Container3 from "./Features/Container3";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
@@ -24,8 +26,8 @@ const Home = () => {
         width: "100%",
         height: "100vh",
         top: "0",
-        borderRadius: "20px",
-        backgroundColor: "black",
+        borderRadius: "0px",
+        backgroundColor: "#251fdb",
         zIndex: 100,
         ease: "power1.inOut",
         clipPath: "inset(0 0 0 0)",
@@ -102,8 +104,8 @@ const Home = () => {
         {/* Icerik */}
         <div className="content z-200 relative ">
           <Container1 />
-          <Container1 />
-          <Container1 />
+          <Container2 />
+          <Container3 />
         </div>
       </div>
       {/* bottom div */}

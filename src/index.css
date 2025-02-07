@@ -9,7 +9,7 @@ body {
   color: white;
 }
 .page {
-  @apply h-[115vh];
+  @apply h-[150vh];
 }
 
 .box {
