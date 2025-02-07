@@ -14,7 +14,7 @@ const Home = () => {
         borderRadius: "30px",
         backgroundColor: "#201bcb",
         zIndex: 150,
-      }, 
+      },
       {
         width: "100%",
         height: "100vh",
@@ -38,12 +38,34 @@ const Home = () => {
         },
       }
     );
+
+    gsap.fromTo(
+      ".content",
+      { opacity: 0, y: 700, scale: 0.5, zIndex: 10 }, // Başlangıçta görünmez ve aşağıda
+      {
+        scale: 1,
+        zIndex: 100,
+        opacity: 1, // Görünür hale gel
+        y: 0, // Yukarıya gel
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: ".box",
+          start: "top 20%",
+          end: "top 0%",
+          scrub: 1,
+        },
+      }
+    );
   }, []);
 
   return (
     <div className="page h-[115vh] w-full">
       {/* Kutu */}
-      <div className="box fixed top-20 left-1/2 transform -translate-x-1/2 bg-[#201bcb] rounded-lg overflow-hidden w-full"></div>
+      <div className="box fixed top-20 left-1/2 transform -translate-x-1/2 bg-[#201bcb] rounded-lg overflow-hidden w-full">
+        <div className="content p-5 text-white">
+          <div>contentler sayfayı kaydırdıkça buradan gelecek.</div>
+        </div>
+      </div>
     </div>
   );
 };
