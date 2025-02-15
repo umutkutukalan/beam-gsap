@@ -1,16 +1,18 @@
+import { logo } from "../utils";
+
 const Navbar = () => {
   return (
-    <nav className="h-[80px] flex items-center justify-between text-white px-4 py-3">
-      <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-lg bg-[#201bcb]"></div>
-        <h1 className="text-3xl">beam</h1>
+    <nav className="h-[80px] flex items-center justify-between text-white px-4 py-3 z-200">
+      <div className="flex items-center gap-2 cursor-pointer">
+        <img src={logo} alt="" width={40}/>
+        <h1 className="text-2xl">Poppin</h1>
       </div>
       <div className="flex items-center gap-4 text-sm">
         <a href="#" className="hover:text-blue-500 text-gray-300">
           About
         </a>
-        <button className="bg-[#201bcb] text-white px-3 py-1 rounded-lg hover:bg-blue-600">
-          Download Beam
+        <button className="poppin-color text-white px-3 py-1 rounded-lg cursor-pointer text-black">
+          Download Poppin
         </button>
       </div>
     </nav>

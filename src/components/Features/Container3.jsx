@@ -1,6 +1,6 @@
 const Container3 = () => {
   return (
-    <div className="h-[100vh] flex items-center justify-center bg-gray-300">
+    <div className="section-page">
       <h1>sayfa3</h1>
     </div>
   );

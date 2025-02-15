@@ -1,21 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import "tailwindcss";
 * {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  font-family: "Poppins", sans-serif;
+  /* scrollbar-width: none;
+  -ms-overflow-style: none; */
   box-sizing: border-box;
 }
 body {
   background-color: black;
-  color: white;
 }
 .page {
   @apply h-[150vh];
 }
 
 .box {
-  @apply fixed left-1/2 transform -translate-x-1/2 bg-[#201bcb] rounded-lg w-full overflow-hidden;
+  @apply fixed left-1/2 transform -translate-x-1/2 rounded-lg w-full overflow-hidden bg-white;
+  background: url(/public/videos/Poppin_Background_Video.mp4);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .video-settings {
   @apply w-200 border border-white overflow-hidden rounded-3xl;
+}
+.first-section-page {
+  @apply h-[150vh] flex items-center justify-center;
+}
+.section-page {
+  @apply h-[100vh] flex items-center justify-center bg-black;
+}
+.poppin-color {
+  @apply bg-[#03ffff];
 }
